@@ -1,5 +1,7 @@
 package com.demo.springconcepts;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.demo.springconcepts.components.DemoBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.boot.SpringApplication;
@@ -9,11 +11,22 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan("com.demo.springconcepts.components")
 public class SpringConceptsApplication {
-
+	public static final Logger logger=LoggerFactory.getLogger(SpringConceptsApplication.class);
 	public static void main(String[] args) {
-		System.out.println("Welcome to spring concept demo.");
-		ApplicationContext context=SpringApplication.run(SpringConceptsApplication.class, args);
-		System.out.println("Checking Context : " + context.getBean(DemoBean.class));
-	}
-
+		logger.debug("Welcome to Spring Concept Demo");
+		ApplicationContext context = SpringApplication.run(SpringConceptsApplication.class, args);
+		logger.debug("Checking Context: {}", context.getBean(DemoBean.class));
+		logger.debug("\n*** Example Using @Autowire annotation on property *");
+		}
 }
+
+
+
+
+
+
+
+
+
+
+
